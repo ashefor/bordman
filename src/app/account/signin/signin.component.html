@@ -1,0 +1,70 @@
+<div class="col-sm-4 offset-sm-4 fullpage">
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/home.png" style="width: 40px; height: 40px">
+    </a>
+  </nav>
+  <div class="">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-body">
+      <p class="h4 mb-4 text-center">Sign in</p>
+
+      <input type="email" id="defaultLoginFormEmail" formControlName="email" class="form-control mb-4"
+        placeholder="E-mail">
+
+      <input type="text" id="defaultLoginFormPassword" formControlName="password" class="form-control mb-4"
+        placeholder="Password">
+
+      <div class="d-flex justify-content-between">
+        <div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+            <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+          </div>
+        </div>
+        <div>
+          <a routerLink="/account/recover">Forgot password?</a>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-block my-4" type="submit">Sign in</button>
+
+      <div class="text-center">
+        <p>Not a member?
+          <a routerLink="/account/signup">Register</a>
+        </p>
+      </div>
+    </form>
+  </div>
+  <div class="container container-second">
+      <a class="item-links" href="">
+          <div class="card-body">
+              Desktop Version
+            </div>
+      </a>
+      <a class="item-links" href="">
+          <div class="card-body">
+              Terms and Conditions
+            </div>
+      </a>
+      <a class="item-links" href="">
+          <div class="card-body">
+              Contact Us
+            </div>
+      </a>
+      <a class="item-links" href="">
+          <div class="card-body">
+              Lorem Ipsum
+            </div>
+      </a>
+      <a class="item-links" href="">
+          <div class="card-body">
+              Lorem Ipsum
+            </div>
+      </a>
+      <a class="item-links" href="">
+          <div class="card-body">
+              Lorem Ipsum
+            </div>
+      </a>
+    </div>
+</div>

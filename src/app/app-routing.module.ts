@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { SigninComponent } from './account/signin/signin.component';
+import { SignupComponent } from './account/signup/signup.component';
+import { RecoverpasswordComponent } from './account/recoverpassword/recoverpassword.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', redirectTo: "/home", pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'account/signin', component: SigninComponent},
+  {path: 'account/signup', component: SignupComponent},
+  {path: 'account/recover', component: RecoverpasswordComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const allRoutes = [HomeComponent, SigninComponent, SignupComponent, RecoverpasswordComponent]
