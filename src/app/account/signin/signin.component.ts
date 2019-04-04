@@ -21,4 +21,8 @@ export class SigninComponent implements OnInit {
     email: [''],
     password: ['']
   })
+
+  goBack(){
+    history.back()
+  }
 }

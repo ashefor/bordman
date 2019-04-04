@@ -19,4 +19,8 @@ export class SignupComponent implements OnInit {
     password: [''],
     phoneNumber: ['']
   })
+
+  goBack(){
+    history.back()
+  }
 }
