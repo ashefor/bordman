@@ -8,6 +8,7 @@ import { SigninComponent } from './account/signin/signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './account/signup/signup.component';
 import { RecoverpasswordComponent } from './account/recoverpassword/recoverpassword.component';
+import { EnglandComponent } from './leagues/england/england.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RecoverpasswordComponent } from './account/recoverpassword/recoverpassw
     allRoutes,
     SigninComponent,
     SignupComponent,
-    RecoverpasswordComponent
+    RecoverpasswordComponent,
+    EnglandComponent
   ],
   imports: [
     BrowserModule,

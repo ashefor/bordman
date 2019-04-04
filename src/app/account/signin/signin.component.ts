@@ -12,10 +12,6 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {
   }
-  // signinForm = this.fb.group({
-  //   email: [''],
-  //   password: ['']
-  // })
 
   loginForm = this.fb.group({
     email: [''],
@@ -24,5 +20,9 @@ export class SigninComponent implements OnInit {
 
   goBack(){
     history.back()
+  }
+
+  onSubmit(){
+    console.log(this.loginForm.value)
   }
 }
