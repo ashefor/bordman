@@ -23,6 +23,6 @@ export class SigninComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.loginForm.value.email)
+    console.log(this.loginForm.value)
   }
 }

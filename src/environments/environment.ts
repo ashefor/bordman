@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCTQnIm-CVdcH-v4s-Od6hImOoFGwAZH5s",
-    authDomain: "bordman-49da4.firebaseapp.com",
-    databaseURL: "https://bordman-49da4.firebaseio.com",
-    projectId: "bordman-49da4",
+    apiKey: "AIzaSyCas6vXqDxtsnDI1906Jf-RjSBErmGJKz4",
+    authDomain: "bord-man.firebaseapp.com",
+    databaseURL: "https://bord-man.firebaseio.com",
+    projectId: "bord-man",
     storageBucket: "",
-    messagingSenderId: "669557163702"
+    messagingSenderId: "226588290005"
   }
 };
 

@@ -6,7 +6,7 @@
   </nav>
   <button class="btn btn-outline-light backbutton" type="button" (click)="goBack()">Back</button>
   <div class="signuparea">
-    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="form-body">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="form-body" method="POST">
       <p class="h4 text-center mb-4">Sign up</p>
 
       <div class="form-row mb-4">

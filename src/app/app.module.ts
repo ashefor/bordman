@@ -9,6 +9,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './account/signup/signup.component';
 import { RecoverpasswordComponent } from './account/recoverpassword/recoverpassword.component';
 import { EnglandComponent } from './leagues/england/england.component';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './services/auth.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,15 +24,19 @@ import { EnglandComponent } from './leagues/england/england.component';
     SigninComponent,
     SignupComponent,
     RecoverpasswordComponent,
-    EnglandComponent
+    EnglandComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'Bordman'),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

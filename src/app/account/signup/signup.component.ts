@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from "@angular/forms"
 import { get } from 'selenium-webdriver/http';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,7 +10,7 @@ import { get } from 'selenium-webdriver/http';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private authservice: AuthService) { }
 
   ngOnInit() {
   }
@@ -28,6 +29,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.signUpForm.value)
+    console.log(this.signUpForm.value);
+
   }
 }
