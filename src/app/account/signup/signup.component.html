@@ -6,7 +6,7 @@
   </nav>
   <button class="btn btn-outline-light backbutton" type="button" (click)="goBack()">Back</button>
   <div class="signuparea">
-    <form [formGroup]="signUpForm" class="form-body">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="form-body">
       <p class="h4 text-center mb-4">Sign up</p>
 
       <div class="form-row mb-4">
@@ -27,7 +27,7 @@
         placeholder="E-mail">
 
       <!-- Password -->
-      <input type="text" id="defaultRegisterFormPassword" formControlName="password" class="form-control"
+      <input type="password" id="defaultRegisterFormPassword" formControlName="password" class="form-control"
         placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
       <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
         At least 6 characters
@@ -40,7 +40,7 @@
         Optional - for two step authentication
       </small>
 
-      <button class="btn btn-primary my-4 btn-block" type="submit">Sign up</button>
+      <button class="btn btn-primary my-4 btn-block" type="submit" [disabled]="!signUpForm.valid">Sign up</button>
 
       <div class="text-center">
         <hr>

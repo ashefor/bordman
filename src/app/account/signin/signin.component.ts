@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from "@angular/forms"
+import { FormBuilder, Validators } from "@angular/forms"
 
 @Component({
   selector: 'app-signin',
@@ -14,8 +14,8 @@ export class SigninComponent implements OnInit {
   }
 
   loginForm = this.fb.group({
-    email: [''],
-    password: ['']
+    email: ['', Validators.compose([Validators.required])],
+    password: ['', Validators.compose([Validators.required])]
   })
 
   goBack(){
@@ -23,6 +23,6 @@ export class SigninComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.loginForm.value)
+    console.log(this.loginForm.value.email)
   }
 }
