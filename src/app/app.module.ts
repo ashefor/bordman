@@ -15,6 +15,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './services/auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { VerifyEmailComponent } from './account/verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SignupComponent,
     RecoverpasswordComponent,
     EnglandComponent,
-    DashboardComponent
+    DashboardComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
