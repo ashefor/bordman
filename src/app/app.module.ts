@@ -10,9 +10,10 @@ import { SignupComponent } from './account/signup/signup.component';
 import { RecoverpasswordComponent } from './account/recoverpassword/recoverpassword.component';
 import { EnglandComponent } from './leagues/england/england.component';
 import { environment } from '../environments/environment';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { AuthService } from './services/auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VerifyEmailComponent } from './account/verify-email/verify-email.component';
@@ -34,9 +35,10 @@ import { VerifyEmailComponent } from './account/verify-email/verify-email.compon
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebase, 'Bordman'),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

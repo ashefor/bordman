@@ -7,16 +7,18 @@ import { RecoverpasswordComponent } from './account/recoverpassword/recoverpassw
 import { EnglandComponent } from './leagues/england/england.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VerifyEmailComponent } from './account/verify-email/verify-email.component';
+import { AuthGuard } from './guard/auth.guard';
+import { SecurePagesGuard } from './guard/secure-pages.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: "/home", pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'account/signin', component: SigninComponent },
-  { path: 'account/signup', component: SignupComponent },
-  { path: 'account/forgot-password', component: RecoverpasswordComponent },
+  { path: 'home', component: HomeComponent, canActivate: [SecurePagesGuard] },
+  { path: 'account/signin', component: SigninComponent, canActivate: [SecurePagesGuard] },
+  { path: 'account/signup', component: SignupComponent, canActivate: [SecurePagesGuard] },
+  { path: 'account/forgot-password', component: RecoverpasswordComponent, canActivate: [SecurePagesGuard] },
   { path: 'leagues/england', component: EnglandComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'account/verify-email', component: VerifyEmailComponent }
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'account/verify-email', component: VerifyEmailComponent, canActivate: [SecurePagesGuard] }
 ];
 
 @NgModule({

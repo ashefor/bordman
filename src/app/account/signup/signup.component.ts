@@ -9,14 +9,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-
+  
+  loading = false;
   constructor(private fb:FormBuilder, private authservice: AuthService) { }
 
   ngOnInit() {
   }
   signUpForm = this.fb.group({
-    firstname: ['', Validators.compose([Validators.required])],
-    lastname: ['', Validators.compose([Validators.required])],
     email: ['', Validators.compose([Validators.email, Validators.required])],
     password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
     phoneNumber: ['']
@@ -29,7 +28,11 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(){
+    this.loading = true;
+    const email = this.f.email.value;
+    const password = this.f.password.value;
     console.log(this.signUpForm.value);
+    this.authservice.SignUp(email, password)
 
   }
 }
