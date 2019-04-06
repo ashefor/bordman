@@ -27,4 +27,7 @@ export class EnglandComponent implements OnInit {
   logout(){
     this.authservice.SignOut()
   }
+  goBack(){
+    history.back();
+  }
 }

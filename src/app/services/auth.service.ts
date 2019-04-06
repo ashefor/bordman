@@ -13,7 +13,7 @@ export class AuthService {
 
   userData: any;
 
-  constructor(private firebaseauth: AngularFireAuth, private firestore: AngularFirestore, private router: Router, private ngZone: NgZone) {
+  constructor(public firebaseauth: AngularFireAuth, public firestore: AngularFirestore, public router: Router, public ngZone: NgZone) {
     this.firebaseauth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
