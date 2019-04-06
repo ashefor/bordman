@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'account/forgot-password', component: RecoverpasswordComponent, canActivate: [SecurePagesGuard] },
   { path: 'leagues/england', component: EnglandComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'account/verify-email', component: VerifyEmailComponent, canActivate: [SecurePagesGuard] }
+  { path: 'account/verify-email', component: VerifyEmailComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class VerifyEmailComponent implements OnInit {
 
-  constructor(private authservice: AuthService) { }
+  constructor(public authservice: AuthService) { }
 
 
   
