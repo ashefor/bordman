@@ -12,7 +12,7 @@
       <input type="email" id="defaultLoginFormEmail" formControlName="email" class="form-control mb-4"
         placeholder="E-mail">
 
-      <input type="text" id="defaultLoginFormPassword" formControlName="password" class="form-control mb-4"
+      <input type="password" id="defaultLoginFormPassword" formControlName="password" class="form-control mb-4"
         placeholder="Password">
 
       <div class="d-flex justify-content-between">
@@ -27,7 +27,7 @@
         </div>
       </div>
 
-      <button class="btn btn-primary btn-block my-4" type="submit" [disabled]="!loginForm.valid">Sign in</button>
+      <button class="btn btn-primary btn-block my-4" type="submit" [disabled]="!loginForm.valid">Sign in <i *ngIf="loading" class="fa fa-spin fa-spinner"></i></button>
 
       <div class="text-center">
         <p>Not a member?

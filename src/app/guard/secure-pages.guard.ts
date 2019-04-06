@@ -6,18 +6,18 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class SecurePagesGuard implements CanActivate {
 
-  constructor(private router: Router,
-    private authservice: AuthService) { }
+  constructor(private authservice: AuthService, private router: Router){
 
+  }
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.authservice.isLoggedIn !== true) {
-      this.router.navigate(['account/signin'])
+    state: RouterStateSnapshot): Observable<boolean> |  Promise<boolean> | boolean {
+    if(this.authservice.isLoggedIn){
+      this.router.navigate(['dashboard'])
     }
-    return true;
+    return true
   }
-
+  
 }
