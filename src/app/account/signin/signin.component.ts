@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from "@angular/forms"
 import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/services/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -11,7 +13,7 @@ export class SigninComponent implements OnInit {
 
   loading = false;
 
-  constructor(private fb: FormBuilder, private authservice: AuthService) { }
+  constructor(private fb: FormBuilder, private authservice: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -30,8 +32,27 @@ export class SigninComponent implements OnInit {
   onSubmit(){
     this.loading = true;
     const email = this.f.email.value;
-    const password = this.f.password.value
-    console.log(this.loginForm.value)
-    this.authservice.signIn(email, password)
+    const password = this.f.password.value;
+   return this.authservice.signIn(email, password).then(
+    (res) => {
+        this.router.navigate(['dashboard']);
+      this.SetUserData(res.user);
+    }).catch((error) => {
+      window.alert(error.message)
+      this.loading = false;
+      console.log(error.code)
+    })
+  }
+
+  SetUserData(user) {
+    // const userRef: AngularFirestoreDocument<any> = this.firestore.doc(`users/${user.uid}`);
+    const userData: User = {
+      email: user.email,
+      password: user.password
+    }
+    // return userRef.set(userData, {
+    //   merge: true
+    // })
+    return userData;
   }
 }

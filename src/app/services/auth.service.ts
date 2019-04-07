@@ -29,15 +29,7 @@ export class AuthService {
 
 
   signIn(email, password) {
-    return this.firebaseauth.auth.signInWithEmailAndPassword(email, password).then(
-      (res) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        });
-        this.SetUserData(res.user);
-      }).catch((error) => {
-        window.alert(error.message)
-      })
+    return this.firebaseauth.auth.signInWithEmailAndPassword(email, password)
   }
 
   SetUserData(user) {
