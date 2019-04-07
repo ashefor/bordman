@@ -25,7 +25,10 @@
       </div>
     </div>
     <div class="" *ngIf="league">
-      Ta-da!
+      <button (click)="getLeagues()"> Ta-da!</button>
+      <select name="" id="">
+        <option value="" *ngFor="let country of countries">{{country.country_name}}</option>
+      </select>
     </div>
     <a class="item-links" href="">
       <div class="card-body">

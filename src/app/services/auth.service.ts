@@ -5,15 +5,18 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Observable } from 'rxjs/observable'
 import { Router } from '@angular/router';
 import { User } from './user';
+import {HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  private url = "https://apifootball.com/api/?action=get_countries&APIkey=4fa21719773c78a55ea0b34b23e3b939333412ed69f023d2e3071c13cdac4484";
+
   userData: any;
 
-  constructor(public firebaseauth: AngularFireAuth, public firestore: AngularFirestore, public router: Router, public ngZone: NgZone) {
+  constructor(public firebaseauth: AngularFireAuth, public firestore: AngularFirestore, public router: Router, public ngZone: NgZone, private http: HttpClient) {
     this.firebaseauth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
@@ -25,6 +28,10 @@ export class AuthService {
         JSON.parse(localStorage.getItem('user'));
       }
     })
+  }
+
+  getCountries(){
+    return this.http.get(this.url);
   }
 
 
@@ -88,4 +95,6 @@ export class AuthService {
       this.router.navigate(['account/signin']);
     })
   }
+
+  
 }

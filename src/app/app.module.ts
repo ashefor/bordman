@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { AuthService } from './services/auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VerifyEmailComponent } from './account/verify-email/verify-email.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { VerifyEmailComponent } from './account/verify-email/verify-email.compon
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

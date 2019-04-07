@@ -7,6 +7,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./england.component.scss']
 })
 export class EnglandComponent implements OnInit {
+
+  private countries = [];
   loggedIn = false;
   loggedOut = false;
   title = "England";
@@ -14,6 +16,7 @@ export class EnglandComponent implements OnInit {
   constructor(private authservice: AuthService) { }
 
   ngOnInit() {
+    this.getLeagues();
     if(this.authservice.isLoggedIn){
       return this.loggedIn = true;
     }
@@ -29,5 +32,13 @@ export class EnglandComponent implements OnInit {
   }
   goBack(){
     history.back();
+  }
+
+
+  getLeagues(){
+    this.authservice.getCountries().subscribe((res: any)=>{
+      this.countries = res;
+      console.log(this.countries)
+    })
   }
 }
