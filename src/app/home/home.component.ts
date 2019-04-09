@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../services/user';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { Validators, FormBuilder } from '@angular/forms';
+import { NgbModalConfig, NgbModal, NgbTabsetConfig } from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
   selector: 'app-home',
@@ -7,9 +12,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  loading = false;
+
+  constructor(private router: Router, 
+    private authservice: AuthService, 
+    private fb: FormBuilder, 
+    private modalservice: NgbModal,
+    private tabset: NgbTabsetConfig) { 
+      tabset.justify = 'center';
+    tabset.type = 'pills';
+    }
 
   ngOnInit() {
   }
 
+  openVerticallyCentered(content) {
+    this.modalservice.open(content, { centered: true, windowClass: 'dark-modal' });
+  }
+
+  loginForm = this.fb.group({
+    email: ['', Validators.compose([Validators.required])],
+    password: ['', Validators.compose([Validators.required])]
+  })
+
+  get f() { return this.loginForm.controls}
+
+  goBack(){
+    history.back()
+  }
+  onSubmit(){
+    this.loading = true;
+    const email = this.f.email.value;
+    const password = this.f.password.value;
+   return this.authservice.signIn(email, password).then(
+    (res) => {
+        this.router.navigate(['dashboard']);
+      this.SetUserData(res.user);
+    }).catch((error) => {
+      window.alert(error.message)
+      this.loading = false;
+      console.log(error.code)
+    })
+  }
+
+  SetUserData(user) {
+    // const userRef: AngularFirestoreDocument<any> = this.firestore.doc(`users/${user.uid}`);
+    const userData: User = {
+      email: user.email,
+      password: user.password
+    }
+    // return userRef.set(userData, {
+    //   merge: true
+    // })
+    return userData;
+  }
 }

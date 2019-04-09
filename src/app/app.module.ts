@@ -18,6 +18,7 @@ import { AuthService } from './services/auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VerifyEmailComponent } from './account/verify-email/verify-email.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule, NgbModalConfig, NgbModal, NgbTabsetConfig } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
@@ -40,9 +41,10 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, NgbModalConfig, NgbModal, NgbTabsetConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
