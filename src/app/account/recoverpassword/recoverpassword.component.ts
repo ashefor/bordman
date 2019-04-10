@@ -18,7 +18,7 @@ export class RecoverpasswordComponent implements OnInit {
     private modalservice: NgbModal, 
     private tabset: NgbTabsetConfig) { 
       tabset.justify ='center',
-      tabset.type= 'pills'
+      tabset.type= 'tabs'
     }
 
   ngOnInit() {
