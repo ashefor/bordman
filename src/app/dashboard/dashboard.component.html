@@ -128,19 +128,19 @@
         <div class="info-details">
           <div class="depo">
             <a class="info-details-section" href="">&nbsp; Deposit &nbsp;</a>
-          </div> 
+          </div>
           <div class="depo">
             <a class="info-details-section" href="">&nbsp; History &nbsp;</a>
-          </div> 
+          </div>
           <div class="dropdown">
             <p class="info-details-section">&nbsp; Account <i class="fa fa-caret-down"></i></p>
             <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <div class="dropdown-divider"></div>
-                <a href="#">Logout</a>
-              </div>
-          </div> 
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <div class="dropdown-divider"></div>
+              <a href="#">Logout</a>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -230,41 +230,62 @@
       </a>
     </div> -->
   <div class="wrapper">
-    
+
     <div>spliff</div>
     <div>Wow
       <button (click)="addodds($event)" value="{{title}}">Add me</button>
     </div>
     <div class="thirdcontent">
-      <!-- <div *ngFor="let table of heroes">
-        <span>{{table}}</span>
-        <span><i (click)="deleteExpense(row._id)" style="cursor: pointer; margin-right: 15px"
-          class="icon fa fa-trash fa-1.5x text-danger" 
-          placement="auto" ngbTooltip="Delete Expense" id="delete_expense"></i></span>
-      </div> -->
       <div>
         <div class="betslip-area">
           <div class="betslip-area-header">
             betslip
           </div>
-          <div class="betslip-area-content" >
+          <div class="betslip-area-content">
+            <div>
               <div *ngIf="heroes.length === 0">
-                  No bets. Select events to place bets!
+                No bets. Select events to place bets!
               </div>
-              <div class="rule" style="display: flex" *ngFor="let table of heroes" >
-                <div>
-                    <hr>
-                  </div>
-                <div>
-                    {{table}}
-                </div>
-                <div style="margin-left: auto">
-                  <i (click)="deleteExpense(row._id)" style="cursor: pointer"
-                      class="icon fa fa-trash fa-1.5x text-danger"
-                      placement="auto" ngbTooltip="Remove"></i>
-                </div>
+            </div>
+            <div class="rule" style="display: flex" *ngFor="let table of heroes">
+              <div>
+                <hr>
               </div>
+              <div>
+                {{table}}
+              </div>
+              <div style="margin-left: auto">
+                <i (click)="deleteExpense(row._id)" style="cursor: pointer" class="icon fa fa-trash fa-1.5x text-danger"
+                  placement="auto" ngbTooltip="Remove"></i>
+              </div>
+            </div>
           </div>
+          <div class="stakearea">
+              <span class="stake">Stake</span>
+              <input class="stakeamount" type="number">
+            </div>
+            <div>
+              <div *ngIf="heroes.length > 1" class="clearselection">
+                <button >Clear All
+                    <img src="../../assets/times.png" alt="">
+                </button>
+              </div>
+              <div class="stake-section">
+                <div class="totalstake">
+                  Total Stake:
+                  <span>0.00</span>
+                </div>
+                <div class="totalamount">
+                  Total Winning:
+                  <span>0.00</span>
+                </div>
+              </div>
+              <div class="placebet text-center">
+                <button class="btn btn-success btn-block">
+                  Place Bet
+                </button>
+              </div>
+            </div>
         </div>
       </div>
     </div>

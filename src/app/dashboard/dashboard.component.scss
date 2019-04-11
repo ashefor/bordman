@@ -365,5 +365,103 @@ button:focus{
 .betslip-area{
     width: 278px;
 }
-.rule::after{
+.rule{
+    border-top: 1px solid #EAECEF;
+}
+.stakearea{
+    display: block;
+    border-top: solid 10px #F58634;
+    background-color: #013BE5;
+    color: #fff;
+    padding-left: 10px;
+    height: 50px;
+    line-height: 35px;
+    position: relative;
+    font-weight: 700;
+    font-size: 16px;
+}
+.stake{
+    line-height: 35px;
+    font-weight: 700;
+    font-size: 16px;
+}
+.stakeamount{
+    height: 25px;
+    line-height: 25px;
+    padding: 0 5px;
+    width: 80px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    color: #000;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+.clearselection{
+    text-align: right;
+}
+// .clearselection::after{
+//     content: "";
+//     width: 16px;
+//     height: 16px;
+//     display: inline-block;
+//     position: relative;
+//     top: 3px;
+//     background: url(../../assets/times.png)
+//     // background: url(../../assets/random2.jpg);
+// }
+.clearselection img{
+    width:16px;
+     height:16px;
+    //  bottom: 130px;
+    position: relative;
+}
+.stake-section{
+    display: grid;
+    width: 100%;
+    text-align: right;
+    float: right;
+}
+.totalstake{
+    text-align: right;
+    margin-bottom: 5px;
+    line-height: 25px;
+    vertical-align: top;
+    display: inline-block;
+    min-width: 80px;
+    font-weight: 500;
+}
+.totalstake span{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 148px;
+    white-space: nowrap;
+    display: inline-block;
+    line-height: 25px;
+    vertical-align: top;
+    font-weight: 400;
+    color: #013BE5;
+}
+.totalamount{
+    text-align: right;
+    margin-bottom: 5px;
+    line-height: 25px;
+    vertical-align: top;
+    display: inline-block;
+    min-width: 80px;
+    font-weight: 500;
+}
+.totalamount span{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 148px;
+    white-space: nowrap;
+    display: inline-block;
+    line-height: 25px;
+    vertical-align: top;
+    font-weight: 400;
+    color: #013BE5;
 }
