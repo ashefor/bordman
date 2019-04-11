@@ -53,14 +53,6 @@ export class AuthService {
 
   SignUp(email, password) {
     return this.firebaseauth.auth.createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
-        up and returns promise */
-        this.SendVerificationMail();
-        this.SetUserData(result.user);
-      }).catch((error) => {
-        window.alert(error.message)
-      })
   }
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
@@ -92,7 +84,7 @@ export class AuthService {
   SignOut() {
     return this.firebaseauth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['account/signin']);
+      // this.router.navigate(['']);
     })
   }
 

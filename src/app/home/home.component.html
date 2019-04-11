@@ -297,19 +297,19 @@
             <ngb-tab class="modal-header" title="Register">
                 <ng-template ngbTabContent>
                     <div class="signuparea col-sm-8 offset-sm-2">
-                        <form  (ngSubmit)="onSubmit()" class="form-body" method="POST">
+                        <form [formGroup]="signUpForm" (ngSubmit)="addUser()" class="form-body" method="POST">
                           <!-- E-mail -->
-                          <input type="email" id="defaultRegisterFormEmail"  class="form-control mb-4"
+                          <input type="email" id="defaultRegisterFormEmail" formControlName="email" class="form-control mb-4"
                             placeholder="E-mail">
                     
                           <!-- Password -->
-                          <input type="password" id="defaultRegisterFormPassword" class="form-control"
+                          <input type="password" id="defaultRegisterFormPassword" formControlName="password" class="form-control"
                             placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
                           <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
                             At least 6 characters
                           </small>
                     
-                          <button class="btn btn-success my-4 btn-block" type="submit">Sign up  <i *ngIf="loading" class="fa fa-spin fa-spinner"></i></button>
+                          <button class="btn btn-success my-4 btn-block" type="submit" [disabled]="!signUpForm.valid">Sign up  <i *ngIf="loading" class="fa fa-spin fa-spinner"></i></button>
                     
                           <div class="text-center">
                             <hr>

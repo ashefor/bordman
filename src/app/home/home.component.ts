@@ -35,7 +35,13 @@ export class HomeComponent implements OnInit {
     password: ['', Validators.compose([Validators.required])]
   })
 
+  signUpForm = this.fb.group({
+    email: ['', Validators.compose([Validators.email, Validators.required])],
+    password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+  })
+
   get f() { return this.loginForm.controls}
+  get sf() { return this.signUpForm.controls}
 
   goBack(){
     history.back()
@@ -47,12 +53,29 @@ export class HomeComponent implements OnInit {
    return this.authservice.signIn(email, password).then(
     (res) => {
         this.router.navigate(['dashboard']);
+        this.modalservice.dismissAll();
       this.SetUserData(res.user);
     }).catch((error) => {
       window.alert(error.message)
       this.loading = false;
       console.log(error.code)
     })
+  }
+
+  addUser(){
+    const email = this.sf.email.value;
+    const password = this.sf.password.value;
+    return this.authservice.SignUp(email,password).then(
+      (result) => {
+        /* Call the SendVerificaitonMail() function when new user sign 
+        up and returns promise */
+        this.modalservice.dismissAll();
+        this.router.navigate(['dashboard'])
+        // this.authservice.SendVerificationMail();
+        this.SetUserData(result.user);
+      }).catch((error) => {
+        window.alert(error.message)
+      })
   }
 
   SetUserData(user) {
