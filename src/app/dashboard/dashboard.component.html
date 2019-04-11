@@ -242,12 +242,12 @@
             betslip
           </div>
           <div class="betslip-area-content">
-            <div>
+            <div class="nobets">
               <div *ngIf="heroes.length === 0">
                 No bets. Select events to place bets!
               </div>
             </div>
-            <div class="rule" style="display: flex" *ngFor="let table of heroes">
+            <div class="showbets" style="display: flex" *ngFor="let table of heroes">
               <div>
                 <hr>
               </div>
@@ -255,37 +255,39 @@
                 {{table}}
               </div>
               <div style="margin-left: auto">
-                <i (click)="deleteExpense(row._id)" style="cursor: pointer" class="icon fa fa-trash fa-1.5x text-danger"
+                <i (click)="removegame()" style="cursor: pointer" class="icon fa fa-trash fa-1.5x text-danger"
                   placement="auto" ngbTooltip="Remove"></i>
               </div>
             </div>
-          </div>
-          <div class="stakearea">
-              <span class="stake">Stake</span>
-              <input class="stakeamount" type="number">
-            </div>
-            <div>
-              <div *ngIf="heroes.length > 1" class="clearselection">
-                <button >Clear All
+            <div class="bet-confirm" *ngIf="heroes.length > 0">
+              <div class="stakearea">
+                <span class="stake">Stake</span>
+                <input class="stakeamount" type="number" step="0.25" min="0" max="10" #stake (keyup)="stakeAmount(stake.value)">
+              </div>
+              <div>
+                <div *ngIf="heroes.length > 1" class="clearselection">
+                  <button>Clear All
                     <img src="../../assets/times.png" alt="">
-                </button>
-              </div>
-              <div class="stake-section">
-                <div class="totalstake">
-                  Total Stake:
-                  <span>0.00</span>
+                  </button>
                 </div>
-                <div class="totalamount">
-                  Total Winning:
-                  <span>0.00</span>
+                <div class="stake-section">
+                  <!-- <div class="totalstake">
+                    Total Stake:
+                    <span>0.00</span>
+                  </div> -->
+                  <div class="totalamount">
+                    Winning:
+                    <span >{{newstakes? newstakes : '0.00'}}</span>
+                  </div>
                 </div>
-              </div>
-              <div class="placebet text-center">
-                <button class="btn btn-success btn-block">
-                  Place Bet
-                </button>
+                <div class="placebet text-center">
+                  <button class="btn btn-success btn-block" [disabled]="stakes.length === 0">
+                    Place Bet
+                  </button>
+                </div>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </div>

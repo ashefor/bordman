@@ -10,7 +10,9 @@ export class DashboardComponent implements OnInit {
 
   title = "ifunanya"
   heroes = [];
-  odds = []
+  odds = [];
+  stakes = '';
+  newstakes;
   constructor(private authservice: AuthService) { }
 
   ngOnInit() {
@@ -21,8 +23,24 @@ export class DashboardComponent implements OnInit {
     this.authservice.SignOut()
   }
   addodds(event){
-    this.heroes.push(event.target.value);
+    if(this.heroes.length === 0){
+      this.heroes.push(event.target.value);
     console.log(this.heroes)
     console.log(event.target.value)
+    }else{
+      window.alert('One selection per ticket');
+      return
+    }
+  }
+  stakeAmount(value: string){
+    this.stakes = value;
+      console.log(this.stakes)
+      this.newstakes = parseFloat(this.stakes).toFixed(2);
+  }
+  removethisgame(){
+    this.heroes.splice(this.heroes.indexOf(''), 1);
+  }
+  removegame(){
+    this.heroes.pop();
   }
 }

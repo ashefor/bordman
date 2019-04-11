@@ -360,13 +360,17 @@ button:focus{
     border: 1px solid #606062;
     font-size: 16px!important;
     border-radius:  0 0 5px 5px;
-    padding: 10px;
+    // padding: 10px;
 }
 .betslip-area{
     width: 278px;
 }
-.rule{
+.showbets{
     border-top: 1px solid #EAECEF;
+    padding: 10px;
+}
+.nobets{
+    padding: 10px;
 }
 .stakearea{
     display: block;
@@ -402,6 +406,7 @@ button:focus{
 }
 .clearselection{
     text-align: right;
+    padding: 10px;
 }
 // .clearselection::after{
 //     content: "";
@@ -424,6 +429,7 @@ button:focus{
     width: 100%;
     text-align: right;
     float: right;
+    padding: 10px;
 }
 .totalstake{
     text-align: right;
@@ -464,4 +470,22 @@ button:focus{
     vertical-align: top;
     font-weight: 400;
     color: #013BE5;
+}
+.placebet{
+    padding: 10px;
+}
+// .bet-confirm{
+//     border: 1px solid #606062;
+//     font-size: 16px!important;
+//     border-radius:  0 0 5px 5px;
+//     padding: 0  !important
+// }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }
